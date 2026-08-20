@@ -16,7 +16,7 @@
         <div class="flex flex-col gap-4 w-2/4 md:ml-12">
           <p class="text-center text-xl font-bold">Player</p>
           <img
-            class="default-img mx-auto object-contain w-2/4"
+            class="left-default-img mx-auto object-contain w-2/4"
             src="./src/assets/default.jpeg"
             alt="Default picture for the rock-paper-scissors-game"
           />
@@ -123,15 +123,17 @@
         </div>
         <div class="flex flex-col gap-4 items-center w-full">
           <p class="text-4xl">VS</p>
-          <p class="text-4xl font-bold text-center">YOU WIN</p>
-          <button class="border text-xl p-2">Clear</button>
+          <p class="results text-4xl font-bold text-center">START GAME</p>
+          <button class="reset-button border text-xl p-2 lg:cursor-pointer">
+            Reset
+          </button>
         </div>
 
         <!-- right hand -->
         <div class="flex flex-col gap-4 w-2/4 md:mr-12">
           <p class="text-center text-xl font-bold">Computer</p>
           <img
-            class="mx-auto object-contain w-2/4 -scale-x-100"
+            class="right-default-img mx-auto object-contain w-2/4 -scale-x-100"
             src="./src/assets/default.jpeg"
             alt="Default picture for the rock-paper-scissors-game"
           />
