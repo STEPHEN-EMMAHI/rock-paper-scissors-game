@@ -5,7 +5,7 @@ import { setGameOver } from "./game-state.js";
 let player_count = 0;
 let computer_count = 0;
 
-export function displayResults(playerChoice) {
+export async function displayResults(playerChoice) {
   const RESULTS = document.querySelector(".results");
   const RIGHT_DEFAULT_IMG = document.querySelector(".right-default-img");
 
@@ -14,7 +14,7 @@ export function displayResults(playerChoice) {
 
   // pass the returned value of the computer choice to a variable
   // rock or paper or scissors
-  const COMPUTER_CHOICE = computerSelectChoice();
+  const COMPUTER_CHOICE = await computerSelectChoice();
 
   // update computer image directly
   RIGHT_DEFAULT_IMG.src = IMAGES[COMPUTER_CHOICE];

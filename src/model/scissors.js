@@ -12,9 +12,6 @@ export function userChooseScissors() {
   // update players choice
   LEFT_DEFAULT_IMG.src = IMAGES.scissors;
 
-  // generate a random computer image
-  computerSelectChoice();
-
   // display results
   displayResults("scissors");
 }
