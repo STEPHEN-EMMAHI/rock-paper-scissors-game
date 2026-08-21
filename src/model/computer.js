@@ -16,13 +16,25 @@ export const IMAGES = {
 };
 
 export function computerSelectChoice() {
-  // generate a random number from the array
-  const RANDOM_INDEX = Math.floor(Math.random() * CHOICE.length);
-  const COMPUTER_CHOICE = CHOICE[RANDOM_INDEX];
+  return new Promise((resolve) => {
+    const RIGHT_DEFAULT_IMG = document.querySelector(".right-default-img");
 
-  // update the computer image from the object
-  const RIGHT_DEFAULT_IMG = document.querySelector(".right-default-img");
-  RIGHT_DEFAULT_IMG.src = IMAGES[COMPUTER_CHOICE];
+    // start shuffling every image after 0.5s
+    const SHUFFLE_INTERVAL = setInterval(() => {
+      const TEMP_INDEX = Math.floor(Math.random() * CHOICE.length);
+      const TEMP_CHOICE = CHOICE[TEMP_INDEX];
+      RIGHT_DEFAULT_IMG.src = IMAGES[TEMP_CHOICE];
+    }, 500);
 
-  return COMPUTER_CHOICE;
+    // stop after 2s and pick a choice
+    setTimeout(() => {
+      clearInterval(SHUFFLE_INTERVAL);
+      const RANDOM_INDEX = Math.floor(Math.random() * CHOICE.length);
+      const COMPUTER_CHOICE = CHOICE[RANDOM_INDEX];
+      RIGHT_DEFAULT_IMG.src = IMAGES[COMPUTER_CHOICE];
+
+      // return final choice
+      resolve(COMPUTER_CHOICE);
+    }, 1500);
+  });
 }

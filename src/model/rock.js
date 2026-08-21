@@ -9,10 +9,8 @@ export function userChooseRock() {
 
   const LEFT_DEFAULT_IMG = document.querySelector(".left-default-img");
 
+  // update the players choice
   LEFT_DEFAULT_IMG.src = IMAGES.rock;
-
-  // generate a random computer image
-  computerSelectChoice();
 
   // display results
   displayResults("rock");

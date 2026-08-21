@@ -12,9 +12,6 @@ export function userChoosePaper() {
   // update the players choice
   LEFT_DEFAULT_IMG.src = IMAGES.paper;
 
-  // generate a random computer choice
-  computerSelectChoice();
-
   // display results
   displayResults("paper");
 }
