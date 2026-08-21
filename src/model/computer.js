@@ -18,23 +18,36 @@ export const IMAGES = {
 export function computerSelectChoice() {
   return new Promise((resolve) => {
     const RIGHT_DEFAULT_IMG = document.querySelector(".right-default-img");
+    let changeCount = 0;
+    let lastIndex = -1;
 
     // start shuffling every image after 0.5s
     const SHUFFLE_INTERVAL = setInterval(() => {
-      const TEMP_INDEX = Math.floor(Math.random() * CHOICE.length);
-      const TEMP_CHOICE = CHOICE[TEMP_INDEX];
+      let randomIndex;
+
+      // ensure the next image is never the same as the current
+      // image
+      do {
+        randomIndex = Math.floor(Math.random() * CHOICE.length);
+      } while (randomIndex === lastIndex);
+
+      lastIndex = randomIndex;
+      const TEMP_CHOICE = CHOICE[randomIndex];
+
       RIGHT_DEFAULT_IMG.src = IMAGES[TEMP_CHOICE];
-    }, 500);
+      changeCount++;
 
-    // stop after 2s and pick a choice
-    setTimeout(() => {
-      clearInterval(SHUFFLE_INTERVAL);
-      const RANDOM_INDEX = Math.floor(Math.random() * CHOICE.length);
-      const COMPUTER_CHOICE = CHOICE[RANDOM_INDEX];
-      RIGHT_DEFAULT_IMG.src = IMAGES[COMPUTER_CHOICE];
+      if (changeCount === 3) {
+        clearInterval(SHUFFLE_INTERVAL);
 
-      // return final choice
-      resolve(COMPUTER_CHOICE);
-    }, 1500);
+        // lock in final choice
+        const FINAL_INDEX = Math.floor(Math.random() * CHOICE.length);
+        const COMPUTER_CHOICE = CHOICE[FINAL_INDEX];
+        RIGHT_DEFAULT_IMG.src = IMAGES[COMPUTER_CHOICE];
+
+        // return final choice
+        resolve(COMPUTER_CHOICE);
+      }
+    }, 900);
   });
 }
