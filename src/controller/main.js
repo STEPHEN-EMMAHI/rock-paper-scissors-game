@@ -1,7 +1,7 @@
 import { userChoosePaper } from "../model/paper.js";
 import { userChooseRock } from "../model/rock.js";
 import { userChooseScissors } from "../model/scissors.js";
-import { RestartGame } from "./restart.js";
+import { RestartGame } from "./next-round.js";
 
 // player clicks on rock button then add functionality
 const USER_ROCK_BUTTON = document.getElementById("user-rock-button");

@@ -9,6 +9,6 @@ export function RestartGame() {
 
   LEFT_DEFAULT_IMG.src = IMAGES.default;
   RIGHT_DEFAULT_IMG.src = IMAGES.default;
-  RESULTS.textContent = "START GAME";
+  RESULTS.textContent = "";
   setGameOver(false);
 }
